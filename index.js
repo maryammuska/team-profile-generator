@@ -14,44 +14,45 @@ function team() {
             {
                 type: 'list',
                 message: 'Do you want to add an engineer, intern, or finish the team?:',
-                name: 'menu',
-                choices: ['Engineer' , 'Intern', 'Finish Team']
+                name: 'teamMember',
+                choices: ['Manager', 'Engineer' , 'Intern', 'Finish Team']
         }
     ])
     .then(function (userInput){
-        switch (userInput.userChoice) {
-            case 'Manager': createManager();            
+        console.log(userInput);
+        switch (userInput.teamMember) {
+            case 'Manager': managerQuestions();            
                 break;
-            case 'Engineer': createEngineer();
+            case 'Engineer': engineerQuestions();
                 break;
-            case 'Intern': createIntern();
+            case 'Intern': internQuestions();
                 break;
             default: teamMembers();
         }
     })
-    }
+    };
 
     function managerQuestions() {
         inquirer.prompt([
             {
                 type: 'input',
                 message:'Please type in your name:',
-                name:'name',
+                name:'managerName',
             },
             {
                 type: 'input',
                 message:'What is your employee ID?',
-                name:'id',
+                name:'managerId',
             },
             {
                 type: 'input',
                 message: 'What is your email address?',
-                name: 'email',
+                name: 'managerEmail',
             },
             {
                 type: 'input',
                 message: 'What is your office number?',
-                name: 'office',
+                name: 'managerOffice',
             }
         ])
         .then((data) => {
@@ -59,34 +60,34 @@ function team() {
                 data.managerName,
                 data.managerId,
                 data.managerEmail,
-                data.managerOfNum,
+                data.managerOffice,
             )
             arr.push(manager);
             menu();
         })
-    }
+    };
 
     function engineerQuestions() {
         inquirer.prompt([
             {
                 type: 'input',
                 message:'Please type in your name:',
-                name:'name',
+                name:'engineerName',
             },
             {
                 type: 'input',
                 message:'What is your employee ID?',
-                name:'id',
+                name:'engineerId',
             },
             {
                 type: 'input',
                 message: 'What is your email address?',
-                name: 'email',
+                name: 'emgineerEmail',
             },
             {
                 type: 'input',
                 message: 'What is your github username?',
-                name: 'username',
+                name: 'engineerUsername',
             }
         ])
         .then((data) => {
@@ -94,34 +95,34 @@ function team() {
                 data.engineerName,
                 data.engineerId,
                 data.engineerEmail,
-                data.githubName,
+                data.engineerUsername,
             )
             arr.push(engineer);
             menu();
         })
-    }
+    };
 
     function internQuestions() {
         inquirer.prompt([
             {
                 type: 'input',
                 message:'Please type in your name:',
-                name:'name',
+                name:'internName',
             },
             {
                 type: 'input',
                 message:'What is your employee ID?',
-                name:'id',
+                name:'internId',
             },
             {
                 type: 'input',
                 message: 'What is your email address?',
-                name: 'email',
+                name: 'internEmail',
             },
             {
                 type: 'input',
                 message: 'What school do you go to?',
-                name: 'school',
+                name: 'internSchool',
             }
         ])
         .then((data) => {
@@ -134,12 +135,12 @@ function team() {
             arr.push(intern);
             menu();
         })
-    }
+    };
     function teamMembers(){
         fs.writeFile('./dist/team-profile.html', generateHtml(arr), (err) =>
         err ? console.error(err) : console.log('Success! File has been created.'));
-    }
+    };
     menu();
-}
+};
 
 team();
