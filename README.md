@@ -37,8 +37,11 @@ Run `npm test` in the command line to run the test suite.
 
 ## Screenshot of generated HTML
 
+<img width="1200" alt="Screen Shot 2022-10-17 at 10 18 17 PM" src="https://user-images.githubusercontent.com/101304518/196341950-e7be4742-e247-4996-ab5a-59459b64ade0.png">
+
 ## Video Walkthrough
 
+https://watch.screencastify.com/v/1ih2Utw2vV4b8PfZv4C9
 
 ## License
 
@@ -68,4 +71,4 @@ WHEN I decide to finish building my team
 THEN I exit the application, and the HTML is generated
 ```
 
-### Team Profile Generator - Copyright 2022 Sherri Knight
+### Team Profile Generator - Copyright 2022 Maryam Muska
