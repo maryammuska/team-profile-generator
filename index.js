@@ -82,7 +82,7 @@ function team() {
             {
                 type: 'input',
                 message: 'What is your email address?',
-                name: 'emgineerEmail',
+                name: 'engineerEmail',
             },
             {
                 type: 'input',
@@ -137,6 +137,7 @@ function team() {
         })
     };
     function teamMembers(){
+        console.log(arr);
         fs.writeFile('./dist/team-profile.html', generateHtml(arr), (err) =>
         err ? console.error(err) : console.log('Success! File has been created.'));
     };

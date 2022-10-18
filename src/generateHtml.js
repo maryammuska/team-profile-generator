@@ -24,12 +24,12 @@ const generateEngineer = function (engineer) {
         <div class="card h-100">
             <div class="card-header">
                 <h3>${engineer.name}</h3>
-                <h4>Manager</h4><i class="material-icons">content_paste</i>
+                <h4>Engineer</h4><i class="material-icons">content_paste</i>
             </div>
             <div class="card-body">
                 <p class="id">ID: ${engineer.id}</p>
                 <p class="email">Email: <a href="mailto:${engineer.email}">${engineer.email}</a></p>
-                <p class="office">Office Number: ${engineer.username}</p>
+                <p class="office">Github: ${engineer.github}</p>
             </div>
         </div>
     </div>
@@ -58,7 +58,7 @@ generateHtml = (data) => {
     arr = [];
 
     for (let i = 0; i < data.length; i++){
-        const employee = data [i];
+        const employee = data[i];
         const role = employee.getRole();
 
         if (role === "Manager") {
@@ -69,7 +69,7 @@ generateHtml = (data) => {
 
         if (role === "Engineer") {
             const engineerCard = generateEngineer(employee);
-            
+            console.log(engineerCard)
             arr.push(engineerCard);
         }
 
